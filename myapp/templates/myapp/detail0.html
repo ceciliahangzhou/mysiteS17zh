@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+</head>
+<body>
+    {% if titlelist %}
+        <p>This is the detail of course: </p>
+        <ol>
+            <p>Course number: </p>
+            <li> {{ titlelist.course_no}} </li>
+            <p>Course title: </p>
+            <li> {{ titlelist.title}} </li>
+            <p>Course textbook: </p>
+            <li> {{ titlelist.textbook}} </li>
+        </ol>
+    {% else %}
+        <strong>This courses does not exist!</strong>
+    {% endif %}
+    <p><a href="/myapp">Back</a> hardcoded url </p>
+</body>
+</html>

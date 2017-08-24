@@ -1,0 +1,22 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}
+    {% if  request.user.is_authenticated %}
+        Hello {{ request.user }}
+    {% else %}
+        Hello User
+    {% endif %}
+{% endblock %}
+
+{% block body_block %}
+    {% if title %}
+        <p>This is the detail of course: </p>
+        <ol>
+            <p>Course number: {{ title.course_no}}</p>
+            <p>Course title: {{ title.title}} </p>
+            <p>Course textbook: {{ title.textbook}} </p>
+        </ol>
+    {% else %}
+        <strong>This courses does not exist!</strong>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'myapp/base.html' %}
+
+{% block myhdg %}
+    {% if  request.user.is_authenticated %}
+        Hello {{ request.user }}
+    {% else %}
+        Hello User
+    {% endif %}
+{% endblock %}
+
+{% block body_block %}
+    <a href="{% url 'myapp:addtopic' %}">Add A New Topic</a>
+    {% if topiclist %}
+        <h2>Topic List:</h2>
+        <ol>
+            {% for topic in topiclist %}
+                <li><a href="{% url 'myapp:topicdetail' topic.id %}">{{ topic.subject }}</a></li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <strong>There are no available topics!</strong>
+    {% endif %}
+{% endblock %}
